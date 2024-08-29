@@ -10,11 +10,23 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Apply CORS middleware to allow requests from other origins
-app.use(cors({
-  origin: 'http://localhost:3001', // Update this with the origin of your frontend
+const corsOptions = {
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:3001', // Development environment
+      'https://helpcenterfrontend.onrender.com' // Production environment
+    ];
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
   allowedHeaders: ['Content-Type'], // Specify allowed headers
-}));
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
