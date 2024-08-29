@@ -10,7 +10,7 @@ function AddCardOverlay({ onClose, onAddCard }) {
     const newCard = { title, description };
 
     // Submit the card to the server
-    axios.post('http://localhost:3000/api/cards', newCard, {
+    axios.post('https://helpcenterfrontend.onrender.com/api/cards', newCard, {
       headers: { 'Content-Type': 'application/json' }
     })
     .then(response => {

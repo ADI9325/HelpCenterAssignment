@@ -14,7 +14,7 @@ function HelpCenter() {
   const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/cards')
+    axios.get('https://helpcenterfrontend.onrender.com/api/cards')
       .then(response => {
         setCards(response.data);
         setFilteredCards(response.data);
