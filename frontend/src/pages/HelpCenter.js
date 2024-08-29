@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar';
 import CardList from '../components/CardList';
 import Header from '../components/Header';
 import AddCardOverlay from '../components/AddCardOverlay';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
 
 function HelpCenter() {
@@ -21,7 +21,7 @@ function HelpCenter() {
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
-
+  
   const handleSearch = (searchTerm) => {
     const filtered = cards.filter(card => 
       card.title.toLowerCase().includes(searchTerm.toLowerCase()));
