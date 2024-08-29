@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors'); // Import CORS middleware
-const cardRoutes = require('./routes/cards');
+const cardRoutes = require('./routes/cards'); // Import your card routes
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,7 +30,7 @@ app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
-app.use('/api', cardRoutes);
+app.use('/api', cardRoutes); // Use card routes
 
 app.get('/ping', (req, res) => {
   res.send('Server is running!');

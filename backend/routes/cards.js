@@ -1,19 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const Card = require('../models/Card');
+const Card = require('../models/Card'); // Import your Card model
 
 // Create a new card
 router.post('/cards', async (req, res) => {
-                    try {
-                      const { title, description } = req.body;
-                      const card = new Card({ title, description });
-                       // This should now work
-                      await card.save();
-                      res.status(201).json(card);
-                    } catch (err) {
-                      res.status(400).json({ error: err.message });
-                    }
-                  });
+  try {
+    const { title, description } = req.body;
+    const card = new Card({ title, description });
+    await card.save();
+    res.status(201).json(card);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
 
 // Get all cards
 router.get('/cards', async (req, res) => {
