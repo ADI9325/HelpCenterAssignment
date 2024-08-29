@@ -1,0 +1,82 @@
+API Endpoints
+-------------
+
+* **GET /ping**: Checks if the server is running.
+
+* **POST /api/cards**: Creates a new card.
+  - Request Body:
+    ```json
+    {
+      "title": "string",
+      "description": "string"
+    }
+    ```
+  - Responses:
+    - **201 Created**
+      ```json
+      {
+        "id": "string",
+        "title": "string",
+        "description": "string"
+      }
+      ```
+    - **400 Bad Request**
+      ```json
+      {
+        "error": "error message"
+      }
+      ```
+
+* **GET /api/cards**: Retrieves all cards.
+  - Responses:
+    - **200 OK**
+      ```json
+      [
+        {
+          "id": "string",
+          "title": "string",
+          "description": "string"
+        }
+      ]
+      ```
+    - **500 Internal Server Error**
+      ```json
+      {
+        "error": "error message"
+      }
+      ```
+
+* **GET /api/cards/:title**: Retrieves a card by title.
+  - Path Parameters:
+    - `title` (string): The title of the card to retrieve.
+  - Responses:
+    - **200 OK**
+      ```json
+      {
+        "id": "string",
+        "title": "string",
+        "description": "string"
+      }
+      ```
+    - **404 Not Found**
+      ```json
+      {
+        "error": "Card not found"
+      }
+      ```
+    - **500 Internal Server Error**
+      ```json
+      {
+        "error": "error message"
+      }
+      ```
+
+Error Handling
+--------------
+
+- **500 Internal Server Error**: General error response for unhandled exceptions.
+
+CORS
+----
+
+Requests are allowed from `http://localhost:3001`. Update this as needed for your frontend deployment.
