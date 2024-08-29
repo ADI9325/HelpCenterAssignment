@@ -4,6 +4,8 @@
 
 The backend for this project is built using Express.js and MongoDB. It serves as the API layer, managing data and providing endpoints for the frontend to interact with. 
 
+## update the cors allow resuest
+  n
 ## Dependencies
 
 - **express**: Web framework for Node.js
